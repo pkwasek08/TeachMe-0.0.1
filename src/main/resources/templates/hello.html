@@ -11,17 +11,7 @@
 </head>
 <body>
 <p th:each="person : ${people}" th:text="${person.name}"/>
-<p th:each="person : ${id}" th:text="${person.id}"/>
-<form id="openidLoginOptionForm" action="j_spring_openid_security_check" method="post" target="_top">
-    <input id="openid_identifier" name="openid_identifier" maxlength="100" type="text" />
-    <input type="submit" />
-</form>
-<form action="j_spring_openid_security_check" id=”googleOpenId” method="post" target="_top">
-    <input id="openid_identifier" name="openid_identifier"
-           type="hidden"
-           value="https://www.google.com/accounts/o8/id"/>
-    <img src="/img/social/google.png" onClick="submitForm('googleOpenId')”/>
-</form>
+<p th:each="person : ${people}" th:text="${person.surname}"/>
 
 </body>
 </html>
