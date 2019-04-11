@@ -7,6 +7,8 @@ import javax.persistence.Id;
 @Entity
 public class Person {
 
+
+
     @Id
     @GeneratedValue
     private Long id;
@@ -40,6 +42,9 @@ public class Person {
 
     public String getName() {
         return name;
+    }
+    public void setId(Long id) {
+        this.id = id;
     }
 
 }
