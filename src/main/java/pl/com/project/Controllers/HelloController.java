@@ -34,7 +34,7 @@ public class HelloController {
     @GetMapping("hi")
     public String hello(Model model) {
         model.addAttribute("people",peopleRepository.findAll());
-        model.addAttribute("id",peopleRepository.findAll());
+       // model.addAttribute("id",peopleRepository.findAll());
         return "hello";
     }
 
