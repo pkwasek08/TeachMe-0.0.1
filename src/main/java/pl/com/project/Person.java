@@ -51,13 +51,5 @@ public class Person {
     public void setId(Long id) {
         this.id = id;
     }
-    @Configuration
-    public class RepositoryConfig extends RepositoryRestConfigurerAdapter {
-        @Override
-        public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
-            config.exposeIdsFor(Person.class);
-        }
-    }
-
 
 }

@@ -11,5 +11,11 @@ import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurerAdapt
 
 public interface PeopleRepository extends CrudRepository<Person, Long> {
 
-
+    @Configuration
+    public class RepositoryConfig extends RepositoryRestConfigurerAdapter {
+        @Override
+        public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
+            config.exposeIdsFor(Person.class);
+        }
+    }
 }
