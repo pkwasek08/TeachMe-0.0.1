@@ -30,7 +30,7 @@ public class HelloController {
         return "Hello User 1234";
     }*/
 
-    @CrossOrigin(origins = "https://rhubarb-cobbler-84890.herokuapp.com")
+    //@CrossOrigin(origins = "https://rhubarb-cobbler-84890.herokuapp.com")
     @GetMapping("hi")
     public String hello(Model model) {
         model.addAttribute("people",peopleRepository.findAll());
