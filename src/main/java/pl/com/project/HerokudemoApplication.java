@@ -30,12 +30,5 @@ public class HerokudemoApplication {
 			http.csrf().disable();
 		}
 	}
-	@Component
-	public class ExposeEntityIdRestMvcConfiguration extends RepositoryRestConfigurerAdapter {
 
-		@Override
-		public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
-			config.exposeIdsFor(HerokudemoApplication.class);
-		}
-	}
 }

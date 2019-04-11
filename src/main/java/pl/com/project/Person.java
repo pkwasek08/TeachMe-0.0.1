@@ -1,12 +1,13 @@
 package pl.com.project;
 
+import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurerAdapter;
 import org.springframework.stereotype.Component;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.Valid;
+import java.util.ArrayList;
 
 @Entity
 public class Person {
@@ -50,13 +51,13 @@ public class Person {
     public void setId(Long id) {
         this.id = id;
     }
-
-    @Component
-    public class ExposeEntityIdRestMvcConfiguration extends RepositoryRestConfigurerAdapter {
-
+    @Configuration
+    public class RepositoryConfig extends RepositoryRestConfigurerAdapter {
         @Override
         public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
             config.exposeIdsFor(Person.class);
         }
     }
+
+
 }
