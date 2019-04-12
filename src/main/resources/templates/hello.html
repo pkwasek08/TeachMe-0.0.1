@@ -10,9 +10,11 @@
     <link href="style.css" rel="stylesheet" />
 </head>
 <body>
+
 <p th:each="person : ${people}" th:text="${person.name}"/>
 <p th:each="person : ${people}" th:text="${person.surname}"/>
 <p th:each="person : ${people}" th:text="${person.id}"/>
 
+<p th:each="notice : ${note}" th:text="${notice}"/>
 </body>
 </html>

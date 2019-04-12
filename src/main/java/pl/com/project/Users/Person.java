@@ -1,13 +1,6 @@
-package pl.com.project;
-
-import org.springframework.context.annotation.Configuration;
-import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
-import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurerAdapter;
-import org.springframework.stereotype.Component;
+package pl.com.project.Users;
 
 import javax.persistence.*;
-import javax.validation.Valid;
-import java.util.ArrayList;
 
 @Entity
 public class Person {
