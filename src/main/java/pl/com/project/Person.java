@@ -1,4 +1,4 @@
-package pl.com.project.Users;
+package pl.com.project;
 
 import javax.persistence.*;
 
