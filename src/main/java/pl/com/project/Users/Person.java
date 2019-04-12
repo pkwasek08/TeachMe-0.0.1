@@ -1,4 +1,4 @@
-package pl.com.project;
+package pl.com.project.Users;
 
 import javax.persistence.*;
 
@@ -10,6 +10,9 @@ public class Person {
     @Id
     @GeneratedValue
     private Long id;
+
+
+
     private String surname;
     private String name;
 
