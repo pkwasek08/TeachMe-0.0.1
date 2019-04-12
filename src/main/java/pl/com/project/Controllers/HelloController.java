@@ -41,7 +41,8 @@ public class HelloController {
         return "hello";
     }
 
-    @GetMapping("note")
+    @RequestMapping("./note")
+    @ResponseBody
     public String hello2(Model model2) {
         model2.addAttribute("note",noticeRepository.findAll());
         // model.addAttribute("id",peopleRepository.findAll());
