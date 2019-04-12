@@ -10,6 +10,8 @@ public class Notice {
     @Id
     @GeneratedValue
     private Long id;
+
+
     private char look_or_offer;
     private Date meeting_date;
     private String meeting_place;

@@ -42,8 +42,8 @@ public class HelloController {
     }
 
     @GetMapping("note")
-    public String hello2(Model model) {
-        model.addAttribute("note",noticeRepository.findAll());
+    public String hello2(Model model2) {
+        model2.addAttribute("note",noticeRepository.findAll());
         // model.addAttribute("id",peopleRepository.findAll());
         return "hello2";
     }
