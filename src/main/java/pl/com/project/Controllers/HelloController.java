@@ -15,17 +15,17 @@ public class HelloController {
     NoticeRepository noticeRepository;
 
     @Autowired
-    public HelloController(PeopleRepository peopleRepository) {
+    public HelloController(PeopleRepository peopleRepository,NoticeRepository noticeRepository) {
         this.peopleRepository = peopleRepository;
+        this.noticeRepository = noticeRepository;
     }
-    public HelloController(NoticeRepository noticeRepository) { this.noticeRepository = noticeRepository; }
 
     @RequestMapping("/")
     @ResponseBody
-    public String hello1(Model model) {
-        model.addAttribute("people",peopleRepository.findAll());
-        model.addAttribute("note",noticeRepository.findAll());
-        return "hello TeachMe";
+    public String hello1(Model model1,Model model2) {
+        model1.addAttribute("people",peopleRepository.findAll());
+        model2.addAttribute("note",noticeRepository.findAll());
+        return "hello TeachMe Demo";
     }
 
    /* @RequestMapping("/loggeduser")
@@ -35,9 +35,9 @@ public class HelloController {
     }*/
 
     @GetMapping("hi")
-    public String hello(Model model) {
-        model.addAttribute("people",peopleRepository.findAll());
-        model.addAttribute("note",noticeRepository.findAll());
+    public String hello(Model model1,Model model2) {
+        model1.addAttribute("people",peopleRepository.findAll());
+        model2.addAttribute("note",noticeRepository.findAll());
         return "hello";
     }
 
