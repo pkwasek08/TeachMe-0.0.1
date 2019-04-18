@@ -5,8 +5,6 @@ import javax.persistence.*;
 @Entity
 public class Person {
 
-
-
     @Id
     @GeneratedValue
     private Long id;

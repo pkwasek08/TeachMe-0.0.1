@@ -15,7 +15,7 @@ public class Notice {
     private char look_or_offer;
     private Date meeting_date;
     private String meeting_place;
-    private StringBuffer note;
+    private StringBuffer note = new StringBuffer(500);
     private Long user_id_user;
 
     public Notice(char look_or_offer, Date meeting_date, String meeting_place, StringBuffer note, Long user_id_user) {
@@ -61,6 +61,13 @@ public class Notice {
         this.meeting_place = meeting_place;
     }
 
+    public Long getUser_id_user() {
+        return user_id_user;
+    }
+
+    public void setUser_id_user(Long user_id_user) {
+        this.user_id_user = user_id_user;
+    }
     public StringBuffer getNote() {
         return note;
     }
@@ -69,11 +76,4 @@ public class Notice {
         this.note = note;
     }
 
-    public Long getUser_id_user() {
-        return user_id_user;
-    }
-
-    public void setUser_id_user(Long user_id_user) {
-        this.user_id_user = user_id_user;
-    }
 }

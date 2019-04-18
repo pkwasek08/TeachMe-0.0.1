@@ -1,4 +1,4 @@
-package pl.com.project;
+package pl.com.project.Configurations;
 
 
 
