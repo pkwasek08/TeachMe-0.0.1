@@ -4,18 +4,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import pl.com.project.Notices.NoticeRepository;
+import pl.com.project.Notices.NoteRepository;
 import pl.com.project.Users.PeopleRepository;
-import pl.com.project.Users.Person;
 
 @Controller
 public class HelloController {
 
     PeopleRepository peopleRepository;
-    NoticeRepository noticeRepository;
+    NoteRepository noticeRepository;
 
     @Autowired
-    public HelloController(PeopleRepository peopleRepository,NoticeRepository noticeRepository) {
+    public HelloController(PeopleRepository peopleRepository, NoteRepository noticeRepository) {
         this.peopleRepository = peopleRepository;
         this.noticeRepository = noticeRepository;
     }
@@ -24,7 +23,7 @@ public class HelloController {
     @ResponseBody
     public String hello1(Model model1,Model model2) {
         model1.addAttribute("people",peopleRepository.findAll());
-        model2.addAttribute("note",noticeRepository.findAll());
+        model2.addAttribute("notenote",noticeRepository.findAll());
         return "hello TeachMe Demo";
     }
 
@@ -37,7 +36,7 @@ public class HelloController {
     @GetMapping("hi")
     public String hello(Model model1,Model model2) {
         model1.addAttribute("people",peopleRepository.findAll());
-        model2.addAttribute("note",noticeRepository.findAll());
+        model2.addAttribute("notenote",noticeRepository.findAll());
         return "hello";
     }
 
