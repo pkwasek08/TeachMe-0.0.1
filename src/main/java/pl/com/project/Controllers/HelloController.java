@@ -33,15 +33,14 @@ public class HelloController {
         return "Hello User 1234";
     }*/
 
-    @GetMapping("hi")
+    @GetMapping("users")
     public String hello(Model model1,Model model2) {
         model1.addAttribute("people",peopleRepository.findAll());
         model2.addAttribute("notenote",noticeRepository.findAll());
         return "hello";
     }
 
-    @RequestMapping("./note")
-    @ResponseBody
+    @GetMapping("NT")
     public String hello2(Model model2) {
         model2.addAttribute("notenote",noticeRepository.findAll());
         // model.addAttribute("id",peopleRepository.findAll());
