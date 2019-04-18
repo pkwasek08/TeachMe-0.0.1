@@ -40,12 +40,12 @@ public class HelloController {
         return "hello";
     }
 
- /*   @RequestMapping("./note")
+    @RequestMapping("./note")
     @ResponseBody
     public String hello2(Model model2) {
-        model2.addAttribute("note",noticeRepository.findAll());
+        model2.addAttribute("notenote",noticeRepository.findAll());
         // model.addAttribute("id",peopleRepository.findAll());
         return "hello2";
-    }*/
+    }
 
 }
