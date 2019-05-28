@@ -8,9 +8,13 @@ public class OpinionEntity {
     private int idOpinion;
     private int rating;
     private String comment;
+    private Integer userIdUser;
+    private Integer userIdUser1;
+    private UserEntity userByUserIdUser;
+    private UserEntity userByUserIdUser1;
 
     @Id
-    @Column(name = "id_opinion")
+    @Column(name = "id_opinion", nullable = false)
     public int getIdOpinion() {
         return idOpinion;
     }
@@ -20,7 +24,7 @@ public class OpinionEntity {
     }
 
     @Basic
-    @Column(name = "rating")
+    @Column(name = "rating", nullable = false)
     public int getRating() {
         return rating;
     }
@@ -30,7 +34,7 @@ public class OpinionEntity {
     }
 
     @Basic
-    @Column(name = "comment")
+    @Column(name = "comment", nullable = false, length = 500)
     public String getComment() {
         return comment;
     }
@@ -59,5 +63,45 @@ public class OpinionEntity {
         result = 31 * result + rating;
         result = 31 * result + (comment != null ? comment.hashCode() : 0);
         return result;
+    }
+
+    @Basic
+    @Column(name = "user_id_user", nullable = true)
+    public Integer getUserIdUser() {
+        return userIdUser;
+    }
+
+    public void setUserIdUser(Integer userIdUser) {
+        this.userIdUser = userIdUser;
+    }
+
+    @Basic
+    @Column(name = "user_id_user1", nullable = true)
+    public Integer getUserIdUser1() {
+        return userIdUser1;
+    }
+
+    public void setUserIdUser1(Integer userIdUser1) {
+        this.userIdUser1 = userIdUser1;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "user_id_user", referencedColumnName = "id_user")
+    public UserEntity getUserByUserIdUser() {
+        return userByUserIdUser;
+    }
+
+    public void setUserByUserIdUser(UserEntity userByUserIdUser) {
+        this.userByUserIdUser = userByUserIdUser;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "user_id_user1", referencedColumnName = "id_user")
+    public UserEntity getUserByUserIdUser1() {
+        return userByUserIdUser1;
+    }
+
+    public void setUserByUserIdUser1(UserEntity userByUserIdUser1) {
+        this.userByUserIdUser1 = userByUserIdUser1;
     }
 }

@@ -2,6 +2,7 @@ package pl.example.models;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.Collection;
 
 @Entity
 @Table(name = "user", schema = "public", catalog = "d2b6rsc8m7io0b")
@@ -19,9 +20,16 @@ public class UserEntity {
     private Integer idCity;
     private CityEntity cityByCityIdCity;
     private CityEntity cityByCityIdCity2;
+    private Integer cityIdCity;
+    private Integer cityIdCity2;
+    private Collection<MeetingEntity> meetingsByIdUser;
+    private Collection<MeetingCacheEntity> meetingCachesByIdUser;
+    private Collection<NoticeEntity> noticesByIdUser;
+    private Collection<OpinionEntity> opinionsByIdUser;
+    private Collection<OpinionEntity> opinionsByIdUser_0;
 
     @Id
-    @Column(name = "id_user")
+    @Column(name = "id_user", nullable = false)
     public int getIdUser() {
         return idUser;
     }
@@ -31,7 +39,7 @@ public class UserEntity {
     }
 
     @Basic
-    @Column(name = "login")
+    @Column(name = "login", nullable = true, length = 127)
     public String getLogin() {
         return login;
     }
@@ -41,7 +49,7 @@ public class UserEntity {
     }
 
     @Basic
-    @Column(name = "name")
+    @Column(name = "name", nullable = false, length = 127)
     public String getName() {
         return name;
     }
@@ -51,7 +59,7 @@ public class UserEntity {
     }
 
     @Basic
-    @Column(name = "surname")
+    @Column(name = "surname", nullable = false, length = 127)
     public String getSurname() {
         return surname;
     }
@@ -61,7 +69,7 @@ public class UserEntity {
     }
 
     @Basic
-    @Column(name = "birth_date")
+    @Column(name = "birth_date", nullable = false)
     public Date getBirthDate() {
         return birthDate;
     }
@@ -71,7 +79,7 @@ public class UserEntity {
     }
 
     @Basic
-    @Column(name = "avatar")
+    @Column(name = "avatar", nullable = true, length = -1)
     public String getAvatar() {
         return avatar;
     }
@@ -81,7 +89,7 @@ public class UserEntity {
     }
 
     @Basic
-    @Column(name = "phone")
+    @Column(name = "phone", nullable = true, length = 127)
     public String getPhone() {
         return phone;
     }
@@ -91,7 +99,7 @@ public class UserEntity {
     }
 
     @Basic
-    @Column(name = "email")
+    @Column(name = "email", nullable = false, length = 127)
     public String getEmail() {
         return email;
     }
@@ -101,7 +109,7 @@ public class UserEntity {
     }
 
     @Basic
-    @Column(name = "password")
+    @Column(name = "password", nullable = true, length = 4000)
     public String getPassword() {
         return password;
     }
@@ -111,7 +119,7 @@ public class UserEntity {
     }
 
     @Basic
-    @Column(name = "about")
+    @Column(name = "about", nullable = true, length = -1)
     public String getAbout() {
         return about;
     }
@@ -121,7 +129,7 @@ public class UserEntity {
     }
 
     @Basic
-    @Column(name = "id_city")
+    @Column(name = "id_city", nullable = true)
     public Integer getIdCity() {
         return idCity;
     }
@@ -186,5 +194,70 @@ public class UserEntity {
 
     public void setCityByCityIdCity2(CityEntity cityByCityIdCity2) {
         this.cityByCityIdCity2 = cityByCityIdCity2;
+    }
+
+    @Basic
+    @Column(name = "city_id_city", nullable = true)
+    public Integer getCityIdCity() {
+        return cityIdCity;
+    }
+
+    public void setCityIdCity(Integer cityIdCity) {
+        this.cityIdCity = cityIdCity;
+    }
+
+    @Basic
+    @Column(name = "city_id_city2", nullable = true)
+    public Integer getCityIdCity2() {
+        return cityIdCity2;
+    }
+
+    public void setCityIdCity2(Integer cityIdCity2) {
+        this.cityIdCity2 = cityIdCity2;
+    }
+
+    @OneToMany(mappedBy = "userByUserIdUser")
+    public Collection<MeetingEntity> getMeetingsByIdUser() {
+        return meetingsByIdUser;
+    }
+
+    public void setMeetingsByIdUser(Collection<MeetingEntity> meetingsByIdUser) {
+        this.meetingsByIdUser = meetingsByIdUser;
+    }
+
+    @OneToMany(mappedBy = "userByUserIdUser")
+    public Collection<MeetingCacheEntity> getMeetingCachesByIdUser() {
+        return meetingCachesByIdUser;
+    }
+
+    public void setMeetingCachesByIdUser(Collection<MeetingCacheEntity> meetingCachesByIdUser) {
+        this.meetingCachesByIdUser = meetingCachesByIdUser;
+    }
+
+    @OneToMany(mappedBy = "userByUserIdUser")
+    public Collection<NoticeEntity> getNoticesByIdUser() {
+        return noticesByIdUser;
+    }
+
+    public void setNoticesByIdUser(Collection<NoticeEntity> noticesByIdUser) {
+        this.noticesByIdUser = noticesByIdUser;
+    }
+
+    @OneToMany(mappedBy = "userByUserIdUser")
+    public Collection<OpinionEntity> getOpinionsByIdUser() {
+        return opinionsByIdUser;
+    }
+
+    public void setOpinionsByIdUser(Collection<OpinionEntity> opinionsByIdUser) {
+        this.opinionsByIdUser = opinionsByIdUser;
+    }
+
+    @OneToMany(mappedBy = "userByUserIdUser1")
+    public Collection<OpinionEntity> getOpinionsByIdUser_0() {
+        return opinionsByIdUser_0;
+    }
+
+    public void setOpinionsByIdUser_0(Collection<OpinionEntity> opinionsByIdUser_0) {
+        this.opinionsByIdUser_0 = opinionsByIdUser_0;
     }
 }

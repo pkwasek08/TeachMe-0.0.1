@@ -15,12 +15,21 @@ public class NoticeEntity {
     private String active;
     private Double timeFrom;
     private Double timeTo;
+    private Integer subjectIdSubject;
+    private Integer userIdUser;
+    private Integer meetingIdMeeting;
+    private SubjectEntity subjectBySubjectIdSubject;
+    private UserEntity userByUserIdUser;
     private MeetingEntity meetingByMeetingIdMeeting;
 
     @Id
-    @Column(name = "id_notice")
+    @Column(name = "id_notice", nullable = false)
     public Integer getIdNotice() {
         return idNotice;
+    }
+
+    public void setIdNotice(int idNotice) {
+        this.idNotice = idNotice;
     }
 
     public void setIdNotice(Integer idNotice) {
@@ -28,7 +37,7 @@ public class NoticeEntity {
     }
 
     @Basic
-    @Column(name = "look_or_offer")
+    @Column(name = "look_or_offer", nullable = false, length = -1)
     public String getLookOrOffer() {
         return lookOrOffer;
     }
@@ -38,7 +47,7 @@ public class NoticeEntity {
     }
 
     @Basic
-    @Column(name = "note")
+    @Column(name = "note", nullable = true, length = -1)
     public String getNote() {
         return note;
     }
@@ -48,7 +57,7 @@ public class NoticeEntity {
     }
 
     @Basic
-    @Column(name = "meeting_place")
+    @Column(name = "meeting_place", nullable = false, length = 127)
     public String getMeetingPlace() {
         return meetingPlace;
     }
@@ -58,7 +67,7 @@ public class NoticeEntity {
     }
 
     @Basic
-    @Column(name = "meeting_date")
+    @Column(name = "meeting_date", nullable = false)
     public Date getMeetingDate() {
         return meetingDate;
     }
@@ -68,7 +77,7 @@ public class NoticeEntity {
     }
 
     @Basic
-    @Column(name = "price")
+    @Column(name = "price", nullable = true, precision = 0)
     public Double getPrice() {
         return price;
     }
@@ -78,7 +87,7 @@ public class NoticeEntity {
     }
 
     @Basic
-    @Column(name = "active")
+    @Column(name = "active", nullable = false, length = -1)
     public String getActive() {
         return active;
     }
@@ -88,7 +97,7 @@ public class NoticeEntity {
     }
 
     @Basic
-    @Column(name = "time_from")
+    @Column(name = "time_from", nullable = true, precision = 0)
     public Double getTimeFrom() {
         return timeFrom;
     }
@@ -98,7 +107,7 @@ public class NoticeEntity {
     }
 
     @Basic
-    @Column(name = "time_to")
+    @Column(name = "time_to", nullable = true, precision = 0)
     public Double getTimeTo() {
         return timeTo;
     }
@@ -139,6 +148,56 @@ public class NoticeEntity {
         result = 31 * result + (timeFrom != null ? timeFrom.hashCode() : 0);
         result = 31 * result + (timeTo != null ? timeTo.hashCode() : 0);
         return result;
+    }
+
+    @Basic
+    @Column(name = "subject_id_subject", nullable = false)
+    public int getSubjectIdSubject() {
+        return subjectIdSubject;
+    }
+
+    public void setSubjectIdSubject(int subjectIdSubject) {
+        this.subjectIdSubject = subjectIdSubject;
+    }
+
+    @Basic
+    @Column(name = "user_id_user", nullable = true)
+    public Integer getUserIdUser() {
+        return userIdUser;
+    }
+
+    public void setUserIdUser(Integer userIdUser) {
+        this.userIdUser = userIdUser;
+    }
+
+    @Basic
+    @Column(name = "meeting_id_meeting", nullable = false)
+    public int getMeetingIdMeeting() {
+        return meetingIdMeeting;
+    }
+
+    public void setMeetingIdMeeting(int meetingIdMeeting) {
+        this.meetingIdMeeting = meetingIdMeeting;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "subject_id_subject", referencedColumnName = "id_subject", nullable = false)
+    public SubjectEntity getSubjectBySubjectIdSubject() {
+        return subjectBySubjectIdSubject;
+    }
+
+    public void setSubjectBySubjectIdSubject(SubjectEntity subjectBySubjectIdSubject) {
+        this.subjectBySubjectIdSubject = subjectBySubjectIdSubject;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "user_id_user", referencedColumnName = "id_user")
+    public UserEntity getUserByUserIdUser() {
+        return userByUserIdUser;
+    }
+
+    public void setUserByUserIdUser(UserEntity userByUserIdUser) {
+        this.userByUserIdUser = userByUserIdUser;
     }
 
     @ManyToOne
