@@ -6,59 +6,33 @@ import java.sql.Date;
 @Entity
 @Table(name = "notice", schema = "public", catalog = "d2b6rsc8m7io0b")
 public class NoticeEntity {
-    @Id
-    @GeneratedValue
-    private Long idNotice;
-
-    private String lookOrOffer;
+    private int idNotice;
+    private Character lookOrOffer;
     private String note;
     private String meetingPlace;
     private Date meetingDate;
     private Double price;
-    private String active;
+    private Character active;
     private Double timeFrom;
     private Double timeTo;
-    private Long subjectIdSubject;
-    private Long userIdUser;
-    private Long meetingIdMeeting;
 
-
-    public NoticeEntity(Long idNotice, String lookOrOffer, String note, String meetingPlace, Date meetingDate, Double price, String active, Double timeFrom, Double timeTo, Long subjectIdSubject, Long userIdUser, Long meetingIdMeeting) {
-        this.idNotice = idNotice;
-        this.lookOrOffer = lookOrOffer;
-        this.note = note;
-        this.meetingPlace = meetingPlace;
-        this.meetingDate = meetingDate;
-        this.price = price;
-        this.active = active;
-        this.timeFrom = timeFrom;
-        this.timeTo = timeTo;
-        this.subjectIdSubject = subjectIdSubject;
-        this.userIdUser = userIdUser;
-        this.meetingIdMeeting = meetingIdMeeting;
-    }
-
-    public NoticeEntity() {
-    }
-
-
+    @Id
     @Column(name = "id_notice", nullable = false)
-    public Long getIdNotice() {
+    public int getIdNotice() {
         return idNotice;
     }
 
-
-    public void setIdNotice(Long idNotice) {
+    public void setIdNotice(int idNotice) {
         this.idNotice = idNotice;
     }
 
     @Basic
     @Column(name = "look_or_offer", nullable = false, length = -1)
-    public String getLookOrOffer() {
+    public Character getLookOrOffer() {
         return lookOrOffer;
     }
 
-    public void setLookOrOffer(String lookOrOffer) {
+    public void setLookOrOffer(Character lookOrOffer) {
         this.lookOrOffer = lookOrOffer;
     }
 
@@ -104,11 +78,11 @@ public class NoticeEntity {
 
     @Basic
     @Column(name = "active", nullable = false, length = -1)
-    public String getActive() {
+    public Character getActive() {
         return active;
     }
 
-    public void setActive(String active) {
+    public void setActive(Character active) {
         this.active = active;
     }
 
@@ -152,9 +126,9 @@ public class NoticeEntity {
         return true;
     }
 
-   /* @Override
+    @Override
     public int hashCode() {
-        int result = intidNotice;
+        int result = idNotice;
         result = 31 * result + (lookOrOffer != null ? lookOrOffer.hashCode() : 0);
         result = 31 * result + (note != null ? note.hashCode() : 0);
         result = 31 * result + (meetingPlace != null ? meetingPlace.hashCode() : 0);
@@ -165,35 +139,4 @@ public class NoticeEntity {
         result = 31 * result + (timeTo != null ? timeTo.hashCode() : 0);
         return result;
     }
-*/
-    @Basic
-    @Column(name = "subject_id_subject", nullable = false)
-    public Long getSubjectIdSubject() {
-        return subjectIdSubject;
-    }
-
-    public void setSubjectIdSubject(Long subjectIdSubject) {
-        this.subjectIdSubject = subjectIdSubject;
-    }
-
-    @Basic
-    @Column(name = "user_id_user", nullable = true)
-    public Long getUserIdUser() {
-        return userIdUser;
-    }
-
-    public void setUserIdUser(Long userIdUser) {
-        this.userIdUser = userIdUser;
-    }
-
-    @Basic
-    @Column(name = "meeting_id_meeting", nullable = false)
-    public Long getMeetingIdMeeting() {
-        return meetingIdMeeting;
-    }
-
-    public void setMeetingIdMeeting(Long meetingIdMeeting) {
-        this.meetingIdMeeting = meetingIdMeeting;
-    }
-
 }
