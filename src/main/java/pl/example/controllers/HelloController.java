@@ -1,14 +1,14 @@
 package pl.example.controllers;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-@RestController
+@Controller
 public class HelloController {
 
     @RequestMapping("/")
-    @CrossOrigin(origins = "*")
+    @ResponseBody
     public String sayHI()
     {
         return "Hi";
