@@ -22,7 +22,6 @@ public class HelloController {
     @ResponseBody
     public String sayHI(Model model1)
     {
-        model1.addAttribute("user", userRepository.findAll());
         return "Hi";
     }
 
